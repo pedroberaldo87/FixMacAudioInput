@@ -1,4 +1,4 @@
-// Renders AppIcon.iconset from the same anchor glyph used in the menu bar.
+// Renders AppIcon.iconset from the same mic-with-padlock glyph used in the menu bar.
 // Built by build.sh together with Sources/StatusIcon.swift: generate_icon <out.iconset>
 import AppKit
 
