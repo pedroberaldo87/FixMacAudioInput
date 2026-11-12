@@ -18,13 +18,17 @@ func render(_ px: Int) -> Data {
     NSGradient(starting: NSColor(calibratedRed: 0.13, green: 0.55, blue: 0.42, alpha: 1),
                ending: NSColor(calibratedRed: 0.05, green: 0.25, blue: 0.30, alpha: 1))!.draw(in: bg, angle: -90)
 
-    // Glyph occupies ~56% of the tile, centered.
+    // Glyph occupies ~56% of the tile, centered. Rendered on its own transparent layer first:
+    // the glyph's knockout halo must not punch through the background.
     let g = s * 0.56
-    let t = NSAffineTransform()
-    t.translateX(by: (s - g) / 2, yBy: (s - g) / 2)
-    t.scale(by: g / 18)
-    t.concat()
-    StatusIcon.draw(paused: false, color: .white)
+    let glyph = NSImage(size: NSSize(width: g, height: g), flipped: false) { _ in
+        let t = NSAffineTransform()
+        t.scale(by: g / 18)
+        t.concat()
+        StatusIcon.draw(paused: false, color: .white)
+        return true
+    }
+    glyph.draw(in: NSRect(x: (s - g) / 2, y: (s - g) / 2, width: g, height: g))
     NSGraphicsContext.restoreGraphicsState()
     return rep.representation(using: .png, properties: [:])!
 }
