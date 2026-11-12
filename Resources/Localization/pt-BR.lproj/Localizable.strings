@@ -14,12 +14,9 @@
 "ui.openAtLogin" = "Abrir ao iniciar sessão";
 "ui.revertCount" = "Trocas desfeitas: %ld";
 "ui.history" = "Histórico";
-"dock.pause" = "Pausar proteção";
-"dock.resume" = "Retomar proteção";
-"dock.input" = "Entrada: %@";
-"dock.output" = "Saída: %@";
-"menu.showWindow" = "Mostrar janela";
-"menu.hide" = "Ocultar FixMacAudioInput";
+"action.pause" = "Pausar proteção";
+"action.resume" = "Retomar proteção";
+"menu.showWindow" = "Ajustes e histórico…";
 "menu.quit" = "Encerrar FixMacAudioInput";
 "menu.window" = "Janela";
 "menu.close" = "Fechar";

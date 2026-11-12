@@ -14,12 +14,9 @@
 "ui.openAtLogin" = "Open at login";
 "ui.revertCount" = "Switches undone: %ld";
 "ui.history" = "History";
-"dock.pause" = "Pause protection";
-"dock.resume" = "Resume protection";
-"dock.input" = "Input: %@";
-"dock.output" = "Output: %@";
-"menu.showWindow" = "Show Window";
-"menu.hide" = "Hide FixMacAudioInput";
+"action.pause" = "Pause protection";
+"action.resume" = "Resume protection";
+"menu.showWindow" = "Settings & History…";
 "menu.quit" = "Quit FixMacAudioInput";
 "menu.window" = "Window";
 "menu.close" = "Close";

@@ -8,8 +8,8 @@
 
 Every time you connect AirPods, a Bluetooth headset or a USB dongle, macOS silently makes it the
 default **input** and **output**. Your good microphone gets replaced by the headset mic, and on
-Bluetooth the audio drops to low-quality "call mode". FixMacAudioInput is a tiny native app that
-sits in your Dock and switches it back — instantly, without asking.
+Bluetooth the audio drops to low-quality "call mode". FixMacAudioInput is a tiny native menu bar app
+that switches it back — instantly, without asking.
 
 ## Features
 
@@ -22,7 +22,8 @@ sits in your Dock and switches it back — instantly, without asking.
 - **Sound effects too.** If the output is pinned, alert sounds are also kept off the new device.
 - **Remembers disconnected devices.** If your preferred USB mic is unplugged, macOS falls back to
   something else; when the mic comes back, it is restored.
-- **Lives in the Dock.** Closing the window keeps it running. Right-click the Dock icon to pause.
+- **Lives in the menu bar.** The mic icon shows the state (crossed out = paused). Its menu lets you
+  pause, pick the preferred input/output, toggle *Keep fixed* and open settings & history. No Dock icon.
 - **Open at login**, history of every action, log file at `~/Library/Logs/FixMacAudioInput.log`.
 - **Languages:** English, Português (Brasil), Español, Français, Deutsch — follows the system
   language (or the per-app setting in System Settings › General › Language & Region).
@@ -42,7 +43,10 @@ sits in your Dock and switches it back — instantly, without asking.
    xattr -dr com.apple.quarantine /Applications/FixMacAudioInput.app
    ```
 
-4. Optional: enable **Open at login** in the window.
+4. Optional: enable **Open at login** in the menu.
+
+The settings window shows up on the very first launch only. After that, use the mic icon in the
+menu bar (opening the app again from Finder also brings the window back).
 
 Requires macOS 14 Sonoma or later.
 
@@ -98,7 +102,7 @@ Sources/
   AudioGuard.swift         the switching rules
   ContentView.swift        SwiftUI window + login item
   L10n.swift               localized string lookup
-  main.swift               AppKit app delegate, Dock menu, single instance
+  main.swift               AppKit app delegate, menu bar item, single instance
 Resources/
   Info.plist
   Localization/<lang>.lproj/Localizable.strings

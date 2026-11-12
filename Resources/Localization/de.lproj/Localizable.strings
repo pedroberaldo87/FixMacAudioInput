@@ -14,12 +14,9 @@
 "ui.openAtLogin" = "Bei Anmeldung öffnen";
 "ui.revertCount" = "Rückgängig gemachte Wechsel: %ld";
 "ui.history" = "Verlauf";
-"dock.pause" = "Schutz pausieren";
-"dock.resume" = "Schutz fortsetzen";
-"dock.input" = "Eingang: %@";
-"dock.output" = "Ausgang: %@";
-"menu.showWindow" = "Fenster anzeigen";
-"menu.hide" = "FixMacAudioInput ausblenden";
+"action.pause" = "Schutz pausieren";
+"action.resume" = "Schutz fortsetzen";
+"menu.showWindow" = "Einstellungen & Verlauf…";
 "menu.quit" = "FixMacAudioInput beenden";
 "menu.window" = "Fenster";
 "menu.close" = "Schließen";

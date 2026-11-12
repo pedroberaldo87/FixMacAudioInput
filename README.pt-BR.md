@@ -9,7 +9,7 @@
 Sempre que você conecta AirPods, um headset Bluetooth ou um dongle USB, o macOS transforma o
 aparelho na **entrada** e na **saída** padrão sem perguntar. Seu microfone bom vira o microfone do
 fone e, no Bluetooth, o áudio cai para o "modo chamada", de baixa qualidade. O FixMacAudioInput é
-um app nativo pequeno que fica na Dock e desfaz a troca na hora.
+um app nativo pequeno de barra de menus que desfaz a troca na hora.
 
 ## O que faz
 
@@ -23,8 +23,9 @@ um app nativo pequeno que fica na Dock e desfaz a troca na hora.
   novo.
 - **Lembra de dispositivos desconectados.** Se o mic USB preferido for desplugado, o macOS usa
   outro; quando o mic volta, o app o restaura.
-- **Fica na Dock.** Fechar a janela não encerra o app. Clique com o botão direito no ícone para
-  pausar.
+- **Fica na barra de menus.** O ícone de microfone mostra o estado (riscado = pausado). O menu dele
+  pausa, escolhe a entrada/saída preferida, liga *Manter fixa* e abre ajustes e histórico. Sem
+  ícone na Dock.
 - **Abrir ao iniciar sessão**, histórico de tudo que fez e log em
   `~/Library/Logs/FixMacAudioInput.log`.
 - **Idiomas:** English, Português (Brasil), Español, Français, Deutsch. Segue o idioma do sistema
@@ -44,7 +45,10 @@ um app nativo pequeno que fica na Dock e desfaz a troca na hora.
    xattr -dr com.apple.quarantine /Applications/FixMacAudioInput.app
    ```
 
-4. Opcional: ligue **Abrir ao iniciar sessão** na janela.
+4. Opcional: ligue **Abrir ao iniciar sessão** no menu.
+
+A janela de ajustes só aparece na primeira abertura. Depois disso, use o ícone de microfone na
+barra de menus (abrir o app de novo pelo Finder também traz a janela).
 
 Requer macOS 14 Sonoma ou mais recente.
 

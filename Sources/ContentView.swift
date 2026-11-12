@@ -19,7 +19,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 Toggle("", isOn: $guardian.enabled).toggleStyle(.switch).labelsHidden()
-                    .help(L(guardian.enabled ? "dock.pause" : "dock.resume"))
+                    .help(L(guardian.enabled ? "action.pause" : "action.resume"))
             }
 
             GroupBox {
