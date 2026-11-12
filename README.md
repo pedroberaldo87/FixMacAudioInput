@@ -22,7 +22,7 @@ that switches it back — instantly, without asking.
 - **Sound effects too.** If the output is pinned, alert sounds are also kept off the new device.
 - **Remembers disconnected devices.** If your preferred USB mic is unplugged, macOS falls back to
   something else; when the mic comes back, it is restored.
-- **Lives in the menu bar.** The mic icon shows the state (crossed out = paused). Its menu lets you
+- **Lives in the menu bar.** Its anchored-mic icon shows the state (crossed out = paused). Its menu lets you
   pause, pick the preferred input/output, toggle *Keep fixed* and open settings & history. No Dock icon.
 - **Open at login**, history of every action, log file at `~/Library/Logs/FixMacAudioInput.log`.
 - **Languages:** English, Português (Brasil), Español, Français, Deutsch — follows the system
@@ -45,7 +45,7 @@ that switches it back — instantly, without asking.
 
 4. Optional: enable **Open at login** in the menu.
 
-The settings window shows up on the very first launch only. After that, use the mic icon in the
+The settings window shows up on the very first launch only. After that, use the anchored-mic icon in the
 menu bar (opening the app again from Finder also brings the window back).
 
 Requires macOS 14 Sonoma or later.
@@ -103,11 +103,12 @@ Sources/
   ContentView.swift        SwiftUI window + login item
   L10n.swift               localized string lookup
   main.swift               AppKit app delegate, menu bar item, single instance
+  StatusIcon.swift         the anchored-mic glyph (menu bar + app icon)
 Resources/
   Info.plist
   Localization/<lang>.lproj/Localizable.strings
-  generate_icon.swift      renders the app icon from SF Symbols
 Tests/main.swift           simulate_plug end-to-end checker
+Tools/generate_icon/       renders AppIcon.iconset from StatusIcon
 build.sh
 ```
 

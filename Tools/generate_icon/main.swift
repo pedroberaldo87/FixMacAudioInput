@@ -1,4 +1,5 @@
-// Renders AppIcon.iconset (mic + lock). Usage: swift generate_icon.swift <out.iconset>
+// Renders AppIcon.iconset from the same anchor glyph used in the menu bar.
+// Built by build.sh together with Sources/StatusIcon.swift: generate_icon <out.iconset>
 import AppKit
 
 let out = URL(fileURLWithPath: CommandLine.arguments[1])
@@ -17,21 +18,19 @@ func render(_ px: Int) -> Data {
     NSGradient(starting: NSColor(calibratedRed: 0.13, green: 0.55, blue: 0.42, alpha: 1),
                ending: NSColor(calibratedRed: 0.05, green: 0.25, blue: 0.30, alpha: 1))!.draw(in: bg, angle: -90)
 
-    func symbol(_ name: String, _ pt: CGFloat, _ origin: NSPoint) {
-        let cfg = NSImage.SymbolConfiguration(pointSize: pt, weight: .semibold)
-            .applying(.init(paletteColors: [.white]))
-        guard let img = NSImage(systemSymbolName: name, accessibilityDescription: nil)?
-            .withSymbolConfiguration(cfg) else { return }
-        img.draw(in: NSRect(origin: origin, size: img.size))
-    }
-    symbol("mic.fill", s * 0.42, NSPoint(x: s * 0.27, y: s * 0.26))
-    symbol("lock.fill", s * 0.20, NSPoint(x: s * 0.58, y: s * 0.18))
+    // Glyph occupies ~56% of the tile, centered.
+    let g = s * 0.56
+    let t = NSAffineTransform()
+    t.translateX(by: (s - g) / 2, yBy: (s - g) / 2)
+    t.scale(by: g / 18)
+    t.concat()
+    StatusIcon.draw(paused: false, color: .white)
     NSGraphicsContext.restoreGraphicsState()
     return rep.representation(using: .png, properties: [:])!
 }
 
-for (base, scales) in [(16, [1, 2]), (32, [1, 2]), (128, [1, 2]), (256, [1, 2]), (512, [1, 2])] {
-    for sc in scales {
+for base in [16, 32, 128, 256, 512] {
+    for sc in [1, 2] {
         let name = sc == 1 ? "icon_\(base)x\(base).png" : "icon_\(base)x\(base)@2x.png"
         try! render(base * sc).write(to: out.appendingPathComponent(name))
     }

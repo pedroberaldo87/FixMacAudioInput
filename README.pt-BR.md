@@ -23,7 +23,7 @@ um app nativo pequeno de barra de menus que desfaz a troca na hora.
   novo.
 - **Lembra de dispositivos desconectados.** Se o mic USB preferido for desplugado, o macOS usa
   outro; quando o mic volta, o app o restaura.
-- **Fica na barra de menus.** O ícone de microfone mostra o estado (riscado = pausado). O menu dele
+- **Fica na barra de menus.** O ícone de microfone ancorado mostra o estado (riscado = pausado). O menu dele
   pausa, escolhe a entrada/saída preferida, liga *Manter fixa* e abre ajustes e histórico. Sem
   ícone na Dock.
 - **Abrir ao iniciar sessão**, histórico de tudo que fez e log em
@@ -47,7 +47,7 @@ um app nativo pequeno de barra de menus que desfaz a troca na hora.
 
 4. Opcional: ligue **Abrir ao iniciar sessão** no menu.
 
-A janela de ajustes só aparece na primeira abertura. Depois disso, use o ícone de microfone na
+A janela de ajustes só aparece na primeira abertura. Depois disso, use o ícone de microfone ancorado na
 barra de menus (abrir o app de novo pelo Finder também traz a janela).
 
 Requer macOS 14 Sonoma ou mais recente.

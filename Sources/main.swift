@@ -43,10 +43,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     private func updateIcon(_ on: Bool) {
-        let image = NSImage(systemSymbolName: on ? "mic.fill" : "mic.slash",
-                            accessibilityDescription: "FixMacAudioInput")
-        image?.isTemplate = true
-        statusItem.button?.image = image
+        statusItem.button?.image = StatusIcon.image(paused: !on)
+        statusItem.button?.setAccessibilityLabel("FixMacAudioInput")
         statusItem.button?.toolTip = "FixMacAudioInput — " + L(on ? "ui.title.on" : "ui.title.off")
     }
 

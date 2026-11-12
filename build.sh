@@ -21,7 +21,9 @@ rm -rf "$BUILD"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 
 echo "→ icon"
-swift Resources/generate_icon.swift "$BUILD/AppIcon.iconset"
+swiftc -swift-version 5 Sources/StatusIcon.swift Tools/generate_icon/main.swift -o "$BUILD/generate_icon"
+"$BUILD/generate_icon" "$BUILD/AppIcon.iconset"
+cp "$BUILD/AppIcon.iconset/icon_128x128@2x.png" docs/icon.png
 iconutil -c icns "$BUILD/AppIcon.iconset" -o "$APP/Contents/Resources/AppIcon.icns"
 
 echo "→ app $VERSION (universal: ${ARCHS[*]})"
