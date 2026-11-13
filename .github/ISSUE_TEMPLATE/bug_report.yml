@@ -1,0 +1,30 @@
+name: Bug report
+description: Something did not switch back (or switched back when it should not)
+labels: [bug]
+body:
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version and Mac
+      placeholder: macOS 26.1, MacBook Air M5
+    validations:
+      required: true
+  - type: input
+    id: devices
+    attributes:
+      label: Devices involved
+      placeholder: AirPods Pro 2 (Bluetooth), Shure MV7 (USB)
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log
+      description: Relevant lines from ~/Library/Logs/FixMacAudioInput.log
+      render: text

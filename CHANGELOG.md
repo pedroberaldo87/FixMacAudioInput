@@ -1,10 +1,11 @@
 # Changelog
 
-## 1.1.0 — 2026-11-11
+## 1.1.0 — 2026-11-12
 
 - Menu bar app with its own mic-with-padlock icon (crossed out when paused), no Dock icon. App icon uses the same glyph.
 - Menu with pause/resume, preferred input/output pickers, *Keep fixed* toggles, switch counter, settings & history window, open at login.
 - Opening the app again (Finder/Spotlight) brings the settings window of the running instance.
+- Website (GitHub Pages), screenshots, contributing guide and CI build.
 
 ## 1.0.0 — 2026-11-11
 

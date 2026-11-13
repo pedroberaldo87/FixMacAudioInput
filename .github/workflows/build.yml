@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Toolchain
+        run: swift --version
+      - name: Build and package
+        run: ./build.sh --package
+      - name: Check bundle
+        run: |
+          lipo -archs build/FixMacAudioInput.app/Contents/MacOS/FixMacAudioInput
+          codesign --verify --strict build/FixMacAudioInput.app
+          ls build/FixMacAudioInput.app/Contents/Resources
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FixMacAudioInput
+          path: dist/*

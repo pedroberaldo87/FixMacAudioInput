@@ -216,6 +216,35 @@ final class AudioGuard: ObservableObject {
         }
     }
 
+    #if SCREENSHOT
+    /// Fake devices and history for the documentation screenshots (Tools/screenshot).
+    /// Never touches CoreAudio, UserDefaults or the log file.
+    func loadDemo() {
+        devices = [
+            AudioDevice(id: 1, uid: "mv7", name: "Shure MV7", hasInput: true, hasOutput: false),
+            AudioDevice(id: 2, uid: "mbp-mic", name: "MacBook Pro Microphone", hasInput: true, hasOutput: false),
+            AudioDevice(id: 3, uid: "airpods", name: "AirPods Pro", hasInput: true, hasOutput: true),
+            AudioDevice(id: 4, uid: "mbp-spk", name: "MacBook Pro Speakers", hasInput: false, hasOutput: true),
+            AudioDevice(id: 5, uid: "studio", name: "Studio Display Speakers", hasInput: false, hasOutput: true),
+        ]
+        for d in devices { names[d.uid] = d.name }
+        preferred = [.input: "mv7", .output: "airpods"]
+        current = preferred
+        revertCount = 12
+        let now = Date()
+        log = [
+            LogEntry(date: now.addingTimeInterval(-4), text: L("log.reverted.input", "AirPods Pro", "Shure MV7")),
+            LogEntry(date: now.addingTimeInterval(-5), text: L("log.connected", "AirPods Pro")),
+            LogEntry(date: now.addingTimeInterval(-1800), text: L("log.disconnected", "AirPods Pro")),
+            LogEntry(date: now.addingTimeInterval(-2400), text: L("log.chosen.output", "AirPods Pro")),
+            LogEntry(date: now.addingTimeInterval(-2402), text: L("log.reverted.input", "AirPods Pro", "Shure MV7")),
+            LogEntry(date: now.addingTimeInterval(-2403), text: L("log.connected", "AirPods Pro")),
+            LogEntry(date: now.addingTimeInterval(-7200), text: L("log.started", "Shure MV7", L("state.fixed"),
+                                                                    "Studio Display Speakers", L("state.free"))),
+        ]
+    }
+    #endif
+
     // MARK: - Helpers
 
     func currentUID(_ scope: AudioScope) -> String? {
